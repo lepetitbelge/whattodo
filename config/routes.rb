@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+  get 'comments/create'
+  get 'comments/delete'
   devise_for :users
   root to: 'pages#home'
 
