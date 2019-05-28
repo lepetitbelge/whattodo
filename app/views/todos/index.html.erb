@@ -1,2 +1,27 @@
-<h1>Todos#index</h1>
-<p>Find me in app/views/todos/index.html.erb</p>
+<h1>My Todos</h1>
+
+<%= form_for Todo.new do |f| %>
+  <div class="form-group">
+    <%= f.text_field :task, placeholder: "What to do?", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.select(:priority, ['(1) Very high', '(2) High', '(3) Medium', '(4) Low', '(5) Very Low'], {}, { :class => 'form-control' }) %>
+  </div>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="form-group">
+  <%= f.submit "Create", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<ul>
+<% @todos.each do |todo| %>
+  <li>
+    <%= todo.task %><br>
+    <strong>priority: </strong><%= todo.priority %><br>
+    <%= link_to "done", todo_path(todo), method: 'delete' %>
+  </li>
+<% end %>
+</ul>

@@ -1,3 +1,5 @@
+require 'byebug'
+
 class TodosController < ApplicationController
   before_action :find_todo, only: %i[update destroy]
   # add pundit rule
@@ -16,7 +18,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    todo.destroy
+    @todo.destroy
     redirect_to root_path
   end
 
@@ -27,6 +29,7 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:description, :priority)
+    # byebug
+    params.require(:todo).permit(:task, :priority, :user_id)
   end
 end
