@@ -1,5 +1,3 @@
-require 'byebug'
-
 class TodosController < ApplicationController
   before_action :find_todo, only: %i[update destroy]
   # add pundit rule
@@ -29,7 +27,17 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    # byebug
-    params.require(:todo).permit(:task, :priority, :user_id)
+    params[:todo][:deadline] = create_deadline(params)
+    params.require(:todo).permit(:task, :priority, :user_id, :deadline)
+  end
+
+  def create_deadline(params)
+    time = []
+    i = 3
+    until i.zero?
+      time << params[:todo]["deadline(#{i}i)"]
+      i -= 1
+    end
+    DateTime.strptime(time.join('-'), '%d-%m-%Y')
   end
 end
