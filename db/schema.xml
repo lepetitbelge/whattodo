@@ -60,15 +60,15 @@
 <row name="done" null="1" autoincrement="0">
 <datatype>BOOLEAN</datatype>
 <default>NULL</default></row>
-<row name="id_Users (device)" null="1" autoincrement="0">
+<row name="id_Users" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="Users (device)" row="id" />
+<default>NULL</default><relation table="Users (devise)" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="542" y="32" name="Users (device)">
+<table x="542" y="32" name="Users (devise)">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -83,9 +83,9 @@
 <row name="content" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_Users (device)" null="1" autoincrement="0">
+<row name="id_Users" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="Users (device)" row="id" />
+<default>NULL</default><relation table="Users (devise)" row="id" />
 </row>
 <row name="id_Todos" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
