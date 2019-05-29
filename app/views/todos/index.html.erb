@@ -1,7 +1,7 @@
-
-<h1>My Todos</h1>
+<h1>My Whatodos</h1>
 
 <button type="button" class="btn btn-custom-large" data-toggle="modal" data-target="#exampleModal">Create whattodo</button>
+
 
 <table class="table table-hover">
   <thead>
@@ -17,7 +17,7 @@
     <% i = 1 %>
     <% @todos.each do |todo| %>
     <tr>
-      <td><%= check_box_tag 'done', '', todo.done %></td>
+      <td><%= check_box_tag 'done', '1', todo.done, class: 'pretty p-pulse p-round p-bigger' %></td>
       <th scope="row"><%= i %></th>
       <td><%= todo.task %></td>
       <td><%= todo.priority %></td>
