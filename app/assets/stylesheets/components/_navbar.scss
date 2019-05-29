@@ -1,18 +1,30 @@
-.fa-user-circle {
-  height: 30px;
-  width: 30px;
-}
-
 .navbar {
-  justify-content: space-between;
   background: white;
   box-shadow: 1px 1px 1px rgb(120,120,120);
+  height: 3rem;
+  padding: 0 10%;
+  justify-content: space-between;
 }
-
 .navbar .navbar-collapse {
   flex-grow: 0;
 }
-
-.navbar .navbar-brand img {
-  width: 40px;
+.navigation {
+  display: inline;
+  float: left;
 }
+.search-and-profile {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#navbarDropdown {
+  width: 30px;
+  border-radius: 50%;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.dropdown-item {
+  font-weight: light;
+  font-size: 13px;
+}
+

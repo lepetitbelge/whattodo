@@ -1,0 +1,34 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Create a new <em>whattodo</em></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for Todo.new do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+
+        <div class="form-group">
+          <label for="form-task-text">Task</label>
+          <%= f.text_field :task, placeholder: "What to do?", class: "form-control", id: "form-task-text" %>
+        </div>
+        <div class="form-group">
+          <label for="form-priority-select">Priority</label>
+          <%= f.select(:priority, ['(1) Very high', '(2) High', '(3) Medium', '(4) Low', '(5) Very Low'], {}, { :class => 'form-control', :id => 'form-priority-select' }) %>
+        </div>
+        <div class="form-group">
+          <label for="form-date-select">Date</label><br>
+          <%= f.date_select :deadline, :ampm => true, :id => 'form-date-select' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Create", class: "btn btn-custom" %>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
