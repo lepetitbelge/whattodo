@@ -2,6 +2,7 @@
 
 <%= form_for Todo.new do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <div class="form-group">
     <label for="form-task-text">Task</label>
     <%= f.text_field :task, placeholder: "What to do?", class: "form-control", id: "form-task-text" %>
@@ -23,9 +24,12 @@
 <% @todos.each do |todo| %>
   <li>
     <%= todo.task %><br>
+    <%= check_box_tag 'done', '', todo.done %><br>
     <strong>priority: </strong><%= todo.priority %><br>
     <strong>deadline: </strong><%= todo.deadline %><br>
-    <%= link_to "done", todo_path(todo), method: 'delete' %>
+    <strong>done: </strong><%= todo.done? ? "Done" : "Not done" %><br>
+    <%= link_to "Delete", todo_path(todo), method: 'delete' %>
+    <%= link_to "Done", todo_path(todo), method: 'patch' %>
   </li>
 <% end %>
 </ul>
