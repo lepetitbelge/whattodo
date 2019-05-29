@@ -9,8 +9,9 @@
       </div>
       <div class="modal-body">
         <%= form_for Todo.new do |f| %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-
+        <% if current_user.exist? %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+        <% end %>
         <div class="form-group">
           <label for="form-task-text">Task</label>
           <%= f.text_field :task, placeholder: "What to do?", class: "form-control", id: "form-task-text" %>
