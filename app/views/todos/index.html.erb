@@ -6,8 +6,8 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Check!</th>
       <th scope="col">#</th>
+      <th scope="col">Check!</th>
       <th scope="col">Task</th>
       <th scope="col">Priority</th>
       <th scope="col">Deadline</th>
@@ -15,20 +15,22 @@
   </thead>
   <tbody>
     <% i = 1 %>
-    <% @todos.each do |todo| %>
-    <tr>
-      <td><%= check_box_tag 'done', '1', todo.done, class: 'pretty p-pulse p-round p-bigger' %></td>
-      <th scope="row"><%= i %></th>
-      <td><%= todo.task %></td>
-      <td><%= todo.priority %></td>
-      <td><%= todo.deadline %></td>
-      <td>
-        <%= link_to "Delete", todo_path(todo), method: 'delete' %>
-      </td>
-      <td>
-        <%= link_to "Done", todo_path(todo), method: 'patch' %>
-      </td>
-    </tr>
+    <% @todos.where(user: current_user).each do |todo| %>
+      <% if current_user == todo.user %>
+        <tr>
+          <th scope="row"><%= i %></th>
+          <td><%= check_box_tag 'done', '1', todo.done, class: 'pretty p-pulse p-round p-bigger' %></td>
+          <td><%= todo.task %></td>
+          <td><%= todo.priority %></td>
+          <td><%= todo.deadline %></td>
+          <td>
+            <%= link_to "Delete", todo_path(todo), method: 'delete' %>
+          </td>
+          <td>
+            <%= link_to "Done", todo_path(todo), method: 'patch' %>
+          </td>
+        </tr>
+      <% end %>
     <% i += 1 %>
     <% end %>
   </tbody>
