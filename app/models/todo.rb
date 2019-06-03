@@ -15,6 +15,6 @@ class Todo < ApplicationRecord
   def deadline_cannot_be_in_past
     return unless deadline
 
-    errors.add(:deadline, "can't be in the past") if DateTime.current > deadline
+    errors.add(:deadline, "can't be in the past") if DateTime.current > (deadline + 1.day)
   end
 end
