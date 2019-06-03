@@ -5,7 +5,7 @@ class TodosController < ApplicationController
   # add pundit rule
 
   def index
-    @todos = policy_scope(Todo).order(created_at: :desc)
+    @todos = policy_scope(Todo).order(created_at: :asc)
   end
 
   def create
