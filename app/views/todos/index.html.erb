@@ -11,7 +11,7 @@
       <th scope="col">Task</th>
       <th scope="col">Priority</th>
       <th scope="col">Deadline</th>
-      <th></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -28,9 +28,11 @@
           </td>
           <td><%= todo.task %></td>
           <td><%= todo.priority %></td>
-          <td><%= todo.deadline %></td>
+          <td><%= todo.deadline.strftime('%d %B %Y') %></td>
           <td>
-            <%= link_to "Delete", todo_path(todo), method: 'delete' %>
+            <%= link_to todo_path(todo), method: 'delete'  do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
           </td>
         </tr>
       <% end %>
