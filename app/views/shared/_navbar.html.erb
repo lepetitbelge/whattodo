@@ -7,20 +7,17 @@
     <div class="navigation">
       <ul class="navbar-nav mr-auto">
       <% if current_user %>
+        <div class="search-and-profile">
+          <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#exampleModal">Create whattodo</button>
+        </div>
         <li class="nav-item dropdown">
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/placeholder-profile-photo.png" />
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/lepetitbelge/image/upload/v1559121121/octopus2.png" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Saved Shouts!</a>
             <a class="dropdown-item" href="#">Settings</a>
             <%= link_to "Log out", "/users/sign_out", method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-        <div class="search-and-profile">
-          <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#exampleModal">
-            Shout!
-          </button>
-        </div>
       <% else %>
         <li class="nav-item">
           <%= link_to "Sign up", "/users/sign_up", class: "nav-link" %>
