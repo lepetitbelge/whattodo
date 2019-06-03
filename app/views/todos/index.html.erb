@@ -11,6 +11,7 @@
       <th scope="col">Task</th>
       <th scope="col">Priority</th>
       <th scope="col">Deadline</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -19,15 +20,17 @@
       <% if current_user == todo.user %>
         <tr>
           <th scope="row"><%= i %></th>
-          <td><%= check_box_tag 'done', '1', todo.done, class: 'pretty p-pulse p-round p-bigger' %></td>
+          <td>
+          <%= form_for todo do |f| %>
+            <%= f.hidden_field :done, value: !todo.done %>
+            <%= f.submit (todo.done ? "✔︎" : "✘"), { :class => 'pretty p-pulse p-round p-bigger'} %>
+          <% end %>
+          </td>
           <td><%= todo.task %></td>
           <td><%= todo.priority %></td>
           <td><%= todo.deadline %></td>
           <td>
             <%= link_to "Delete", todo_path(todo), method: 'delete' %>
-          </td>
-          <td>
-            <%= link_to "Done", todo_path(todo), method: 'patch' %>
           </td>
         </tr>
       <% end %>

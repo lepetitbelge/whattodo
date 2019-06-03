@@ -15,8 +15,8 @@ class TodosController < ApplicationController
   end
 
   def update
-    @todo.update(todo_params)
     authorize @todo
+    @todo.update(todo_params)
     redirect_to root_path
   end
 
