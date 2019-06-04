@@ -41,7 +41,7 @@ The goal was to create a single page app for this purpose and use AJAX and RoR a
 * [YES] Je dois pouvoir supprimer un commentaire ;
 
 [YES] = present
-[Hmm] = partly present
+[...] = partly present
 [ ] = not present
 
 ## Pré-requis techniques
@@ -49,6 +49,6 @@ The goal was to create a single page app for this purpose and use AJAX and RoR a
 * [YES] Il est nécessaire de gérer à la fois l’authentication ET l’authorization : l’utilisateur ne doit pouvoir accéder qu’à ses propres tâches
 * [YES] L’utilisation de gems (notamment Devise et Pundit) est recommandée
 * [YES] Les validations doivent se faire aussi bien côté client que côté serveur
-* [Hmm] L’application doit fonctionner entièrement en mode “single page” avec des requêtes AJAX (sans rechargement de la page)
+* [...] L’application doit fonctionner entièrement en mode “single page” avec des requêtes AJAX (sans rechargement de la page)
 * [YES] La stack front est libre. En plus de HTML5/CSS3, le candidat est libre d'utiliser un framework css ou non (ex: Materialize, Booststrap) et un framework JS ou non (ex: React)
 * [I did my best] Toute attention portée à l’UX de l’application sera appréciée 🙂
