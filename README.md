@@ -36,23 +36,23 @@ The goal was to create a single page app for this purpose and use AJAX and RoR a
 3. Check user stories
 
 ## User stories
-[x] Je dois pouvoir sign-in/sign-up avec un email/mot de passe ou via Facebook ;
-[x] Je dois pouvoir ajouter/supprimer des tâches ;
-[x] Je dois pouvoir donner un ordre de priorité à des tâches ;
-[x] Je dois pouvoir attribuer une deadline à une tâche ;
-[x] Je dois pouvoir marquer une tâche comme “réalisée” ;
-[x] Je dois pouvoir ajouter des commentaires à une tâche ;
-[x] Je dois pouvoir supprimer un commentaire ;
+* [x] Je dois pouvoir sign-in/sign-up avec un email/mot de passe ou via Facebook ;
+* [x] Je dois pouvoir ajouter/supprimer des tâches ;
+* [x] Je dois pouvoir donner un ordre de priorité à des tâches ;
+* [x] Je dois pouvoir attribuer une deadline à une tâche ;
+* [x] Je dois pouvoir marquer une tâche comme “réalisée” ;
+* [x] Je dois pouvoir ajouter des commentaires à une tâche ;
+* [x] Je dois pouvoir supprimer un commentaire ;
 
 [x] = present
 [/] = partly present
 [ ] = not present
 
 ## Pré-requis techniques
-[x] Application web avec un backend RubyOnRails et une database relationnelle (Postgresql)
-[x] Il est nécessaire de gérer à la fois l’authentication ET l’authorization : l’utilisateur ne doit pouvoir accéder qu’à ses propres tâches
-[x] L’utilisation de gems (notamment Devise et Pundit) est recommandée
-[x] Les validations doivent se faire aussi bien côté client que côté serveur
-[/] L’application doit fonctionner entièrement en mode “single page” avec des requêtes AJAX (sans rechargement de la page)
-[x] La stack front est libre. En plus de HTML5/CSS3, le candidat est libre d'utiliser un framework css ou non (ex: Materialize, Booststrap) et un framework JS ou non (ex: React)
-[I did my best] Toute attention portée à l’UX de l’application sera appréciée 🙂
+* [x] Application web avec un backend RubyOnRails et une database relationnelle (Postgresql)
+* [x] Il est nécessaire de gérer à la fois l’authentication ET l’authorization : l’utilisateur ne doit pouvoir accéder qu’à ses propres tâches
+* [x] L’utilisation de gems (notamment Devise et Pundit) est recommandée
+* [x] Les validations doivent se faire aussi bien côté client que côté serveur
+* [/] L’application doit fonctionner entièrement en mode “single page” avec des requêtes AJAX (sans rechargement de la page)
+* [x] La stack front est libre. En plus de HTML5/CSS3, le candidat est libre d'utiliser un framework css ou non (ex: Materialize, Booststrap) et un framework JS ou non (ex: React)
+* [I did my best] Toute attention portée à l’UX de l’application sera appréciée 🙂
