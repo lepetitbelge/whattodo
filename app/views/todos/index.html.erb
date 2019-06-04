@@ -30,7 +30,7 @@
           <td><%= todo.priority %></td>
           <td><%= todo.deadline.strftime('%d %B %Y') %></td>
           <td>
-            <%= link_to todo_path(todo), method: 'delete'  do %>
+            <%= link_to todo_path(todo), method: 'delete', class: "delete_todo"  do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </td>

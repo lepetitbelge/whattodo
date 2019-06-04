@@ -1,21 +1,21 @@
 const sendNewTodoForm = (new_todo_form) => {
-  const action = new_todo_form.attributes.action.value
-  const method = new_todo_form.method
-  console.log('action: ',action)
+  const url = new_todo_form.attributes.action.value;
+  const method = new_todo_form.method;
+  console.log('url: ',url)
   console.log('method: ',method)
 
-  const task = document.querySelector('#form-task-text').value
-  const priority = document.querySelector('#form-priority-select').value
-  const user = document.querySelector('#todo_user_id').value
+  const task = document.querySelector('#form-task-text').value;
+  const priority = document.querySelector('#form-priority-select').value;
+  const user = document.querySelector('#todo_user_id').value;
 
-  const year = document.querySelector('#todo_deadline_1i').value
-  const month = document.querySelector('#todo_deadline_2i').value
-  const day = document.querySelector('#todo_deadline_3i').value
+  const year = document.querySelector('#todo_deadline_1i').value;
+  const month = document.querySelector('#todo_deadline_2i').value;
+  const day = document.querySelector('#todo_deadline_3i').value;
   const date = `${day}-${month}-${year}`
 
   $.ajax({
     method: method,
-    url: action,
+    url: url,
     data: { todo: {task: task, priority: priority, user_id: user, deadline: date} }
   }).done(function(data) {
       location.reload();
@@ -28,13 +28,13 @@ const sendNewTodoForm = (new_todo_form) => {
 };
 
 const updateDone = (edit_done_form) => {
-  const action = edit_done_form.attributes.action.value
-  const method = edit_done_form.method
+  const url = edit_done_form.attributes.action.value;
+  const method = edit_done_form.method;
   const value = edit_done_form.querySelector('#todo_done').value;
 
   $.ajax({
     method: method,
-    url: action,
+    url: url,
     data: { todo: {done: value}, _method: 'PATCH' }
   }).done(function(data) {
       console.log(data);
@@ -47,6 +47,27 @@ const updateDone = (edit_done_form) => {
     });
 };
 
+const deleteTodo = (link) => {
+  link.addEventListener('click', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    const method = link.id
+    const url = link.attributes['href'].value;
+
+    $.ajax({
+      type: method,
+      url: url
+    }).done(function(data) {
+      console.log("we're here bebee")
+      location.reload();
+    }).fail(function(xhr, status, error) {
+    //Ajax request failed.
+      const errorMessage = xhr.status + ': ' + xhr.statusText
+      alert('Error - ' + errorMessage);
+    });
+  });
+};
+
 $(function(){
   $('form#new_todo').submit(function(event){
     event.preventDefault();
@@ -56,4 +77,10 @@ $(function(){
     event.preventDefault();
     updateDone(this);
   });
+  // THIS CODE IS SUPPOSED TO AJAX DELETE FUNCTION -> DOES NOT WORK, BUT CLOSE
+  // const linkDeleteTodo = Array.from(document.querySelectorAll('.delete_todo'))
+  // linkDeleteTodo.forEach((link) => {
+  //   deleteTodo(link);
+  // });
 });
+
