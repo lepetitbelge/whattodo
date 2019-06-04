@@ -27,7 +27,7 @@
           </td>
           <td>
             <%= todo.task %>
-            <i class="far fa-comment-alt" data-toggle="modal" data-target="#modal-<%= todo.id %>"></i>
+            <i class="far fa-comment-alt" data-toggle="modal" data-target="#modal-<%= todo.id %>"> (<%= todo.comments.count %>)</i>
           </td>
           <td><%= todo.priority %></td>
           <td><%= todo.deadline.strftime('%d %B %Y') %></td>
