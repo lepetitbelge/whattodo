@@ -26,12 +26,8 @@ The goal was to create a single page app for this purpose and use AJAX and RoR a
 1. Go to https://idontknowwhattodo.herokuapp.com/
 2. You can log in or sign up to continue
   * I have already created accounts for both of you, which are already populated with various todo's so feel free to use those
-  * Karine:
-   * email: karine@poulpe.com
-   * pw: 123456
- * Thomas:
-  * email: thomass@poulpe.com
-  * pw: 123456
+    * Karine: karine@poulpe.com (email) & 123456 (pw)
+    * Thomas: thomass@poulpe.com & 123456
 3. Check out user stories and usability
 4. Providing me with feedback would be highly appreciated :)
 
