@@ -32,7 +32,7 @@
           <td><%= todo.priority %></td>
           <td><%= todo.deadline.strftime('%d %B %Y') %></td>
           <td>
-            <%= link_to todo_path(todo), method: 'delete', class: "delete_todo"  do %>
+            <%= link_to todo_path(todo), method: 'delete', class: "delete_todo", data: { :confirm => "Are you sure?" }  do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </td>
