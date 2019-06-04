@@ -1,4 +1,3 @@
-<!-- Modal -->
 <% if current_user %>
   <% @todos.where(user: current_user).each do |todo| %>
     <div class="modal fade" id="modal-<%= todo.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -6,34 +5,36 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle"><%= todo.task %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div class="modal-body">
             <ul class="todomodal-comments">
               <% todo.comments.each do |comment| %>
-                <li>
-                  <p>
-                    <span class="todomodal-comment-time"><%= comment.created_at.strftime('%e %b %Y') %>: </span>
-                    <span class="todomodal-comment-content"><%= comment.content %></span>
-                  </p>
+                <li class="comments-box">
+                  <div class="comment-content">
+                    <p><%= comment.content %></p>
+                  </div>
+                  <div class="comment-time">
+                    <p>(<%= comment.created_at.strftime('%e %b %Y') %>)</p>
+                  </div>
                 </li>
               <% end %>
-              <li>
-                <%= form_for Comment.new do |f| %>
-                  <div class="form-group">
-                    <%= f.text_field :content, placeholder: "Drop a comment here", class: 'form-control' %>
-                  </div>
-                    <%= f.hidden_field :todo_id, value: todo.id %>
-                    <%= f.hidden_field :user_id, value: current_user.id %>
-
-                  <div class="form-group">
-                      <%= f.submit "Post comment", class: "btn btn-custom" %>
-                  </div>
-                <% end %>
-              </li>
             </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-custom" data-dismiss="modal">Close comments</button>
+            <%= form_for Comment.new do |f| %>
+              <div class="form-group">
+                <%= f.text_field :content, placeholder: "Add a comment", class: 'form-control' %>
+              </div>
+                <%= f.hidden_field :todo_id, value: todo.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+
+              <div class="form-group">
+                  <%= f.submit "Post comment", class: "btn btn-custom" %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

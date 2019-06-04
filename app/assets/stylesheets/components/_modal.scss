@@ -1,9 +1,31 @@
 .todomodal-comments{
   list-style-type: none;
+  padding: 0;
 }
-.todomodal-comment-time {
+.comments-box{
+  align-items: baseline;
+  border-bottom: 1px solid rgba(216,38,51,0.2);
+  color: rgba(0,0,0,.7);
+  display: flex;
   font-weight: lighter;
+  padding: 5px;
+  width: 100%;
+  & p {
+    margin: 0.2rem 0;
+    padding-right: 5px;
+  }
 }
-.todomodal-comment-content {
-  font-weight: bold;
+.comment-content {
+  width: 80%;
+}
+.comment-time {
+  flex-grow: 1;
+  font-size: 12px
+}
+.modal-header {
+  border-bottom: 1px solid rgba(216,38,51,0.5);
+}
+.modal-footer{
+  display: inline;
+  border-top: none;
 }
