@@ -17,6 +17,19 @@
                   </p>
                 </li>
               <% end %>
+              <li>
+                <%= form_for Comment.new do |f| %>
+                  <div class="form-group">
+                    <%= f.text_field :content, placeholder: "Drop a comment here", class: 'form-control' %>
+                  </div>
+                    <%= f.hidden_field :todo_id, value: todo.id %>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+
+                  <div class="form-group">
+                      <%= f.submit "Post comment", class: "btn btn-custom" %>
+                  </div>
+                <% end %>
+              </li>
             </ul>
           </div>
           <div class="modal-footer">
