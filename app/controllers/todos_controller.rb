@@ -5,7 +5,7 @@ class TodosController < ApplicationController
   # add pundit rule
 
   def index
-    @todos = policy_scope(Todo).order(created_at: :desc)
+    @todos = policy_scope(Todo).order(created_at: :asc)
   end
 
   def create
@@ -15,8 +15,8 @@ class TodosController < ApplicationController
   end
 
   def update
-    @todo.update(todo_params)
     authorize @todo
+    @todo.update(todo_params)
     redirect_to root_path
   end
 
