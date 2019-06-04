@@ -205,7 +205,7 @@ Todo.create({
 })
 all_todos = Todo.all
 
-50.times do
+150.times do
   Comment.create({
     content: Faker::Quote.famous_last_words,
     todo_id: all_todos.sample.id,
