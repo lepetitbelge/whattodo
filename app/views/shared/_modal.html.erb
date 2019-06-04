@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
           <label for="form-priority-select">Priority</label>
-          <%= f.select(:priority, ['(1) Very high', '(2) High', '(3) Medium', '(4) Low', '(5) Very Low'], {}, { :class => 'form-control', :id => 'form-priority-select' }) %>
+          <%= f.select(:priority, ['(5) Very high', '(4) High', '(3) Medium', '(2) Low', '(1) Very Low'], {}, { :class => 'form-control', :id => 'form-priority-select' }) %>
         </div>
         <div class="form-group form-date-select">
           <label for="form-date-select">Date</label><br>
@@ -28,7 +28,6 @@
           <%= f.submit "Create", class: "btn btn-custom" %>
         </div>
         <% end %>
-
       </div>
     </div>
   </div>

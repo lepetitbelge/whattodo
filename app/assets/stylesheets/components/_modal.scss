@@ -1,0 +1,35 @@
+.todomodal-comments{
+  list-style-type: none;
+  padding: 0;
+}
+.comments-box{
+  align-items: baseline;
+  border-bottom: 1px dashed rgba(216,38,51,0.3);
+  color: rgba(0,0,0,.7);
+  display: flex;
+  font-weight: lighter;
+  width: 100%;
+  & p {
+    margin: 0.2rem 0;
+  }
+}
+.comment-content {
+  padding: 5px;
+  width: 75%;
+}
+.comment-time {
+  flex-grow: 1;
+  font-size: 12px;
+  text-align: right;
+}
+.comment-delete {
+  min-width: 20px;
+  text-align: right;
+}
+.modal-header {
+  border-bottom: 1px solid rgba(216,38,51,0.5);
+}
+.modal-footer{
+  display: inline;
+  border-top: none;
+}

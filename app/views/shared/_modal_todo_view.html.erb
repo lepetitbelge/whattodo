@@ -1,0 +1,48 @@
+<% if current_user %>
+  <% @todos.where(user: current_user).each do |todo| %>
+    <div class="modal fade" id="modal-<%= todo.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Task: <%= todo.task %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <ul class="todomodal-comments">
+              <% todo.comments.each do |comment| %>
+                <li class="comments-box">
+                  <div class="comment-content">
+                    <p><%= comment.content %></p>
+                  </div>
+                  <div class="comment-time">
+                    <p>(<%= comment.created_at.strftime('%e %b %Y') %>)</p>
+                  </div>
+                  <div class="comment-delete">
+                    <%= link_to comment_path(comment), method: 'delete', class: "delete_comment", data: { :confirm => "Are you sure?" }  do %>
+                    <i class="far fa-trash-alt"></i>
+                    <% end %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <%= form_for Comment.new do |f| %>
+              <div class="form-group">
+                <%= f.text_field :content, placeholder: "Add a comment", class: 'form-control' %>
+              </div>
+                <%= f.hidden_field :todo_id, value: todo.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+
+              <div class="form-group">
+                  <%= f.submit "Post comment", class: "btn btn-custom" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

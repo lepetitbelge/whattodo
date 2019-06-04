@@ -2,3 +2,17 @@
 h1,h2 {
   margin-top: 3rem;
 }
+.todos-main-header{
+  margin-top: 3rem;
+  font-weight: lighter;
+}
+.todos-greeting-header {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.fa-comment-alt {
+  color: rgb(176, 129, 190);
+  &:hover {
+    cursor: pointer;
+  }
+}

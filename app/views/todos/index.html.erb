@@ -1,7 +1,6 @@
-<h1>My Whatodos</h1>
-
+<h1 class="todos-main-header">Your Whatodos</h1>
+<h3 class="todos-greeting-header">Hey <%= current_user.email.split('@').first %>, what do you want to accomplish today?</h3>
 <button type="button" class="btn btn-custom-large" data-toggle="modal" data-target="#exampleModal">Create whattodo</button>
-
 
 <table class="table table-hover">
   <thead>
@@ -26,11 +25,14 @@
             <%= f.submit (todo.done ? "✔︎" : "✘"), { :class => 'pretty p-bigger'} %>
           <% end %>
           </td>
-          <td><%= todo.task %></td>
+          <td>
+            <%= todo.task %>
+            <i class="far fa-comment-alt" data-toggle="modal" data-target="#modal-<%= todo.id %>"></i>
+          </td>
           <td><%= todo.priority %></td>
           <td><%= todo.deadline.strftime('%d %B %Y') %></td>
           <td>
-            <%= link_to todo_path(todo), method: 'delete', class: "delete_todo"  do %>
+            <%= link_to todo_path(todo), method: 'delete', class: "delete_todo", data: { :confirm => "Are you sure?" }  do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </td>
