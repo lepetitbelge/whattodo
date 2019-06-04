@@ -1,7 +1,6 @@
-<h1>My Whatodos</h1>
-
+<h1 class="todos-main-header">Your Whatodos</h1>
+<h3 class="todos-greeting-header">Hey <%= current_user.email.split('@').first %>, what do you want to accomplish today?</h3>
 <button type="button" class="btn btn-custom-large" data-toggle="modal" data-target="#exampleModal">Create whattodo</button>
-
 
 <table class="table table-hover">
   <thead>
@@ -18,7 +17,7 @@
     <% i = 1 %>
     <% @todos.where(user: current_user).each do |todo| %>
       <% if current_user == todo.user %>
-        <tr>
+        <tr data-toggle="modal" data-target="#modal-<%= todo.id %>">
           <th scope="row"><%= i %></th>
           <td>
           <%= form_for todo do |f| %>
