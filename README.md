@@ -45,7 +45,7 @@ The goal was to create a single page app for this purpose and use AJAX and RoR a
 [x] Je dois pouvoir supprimer un commentaire ;
 
 [x] = present
-[/] = not entirely present
+[/] = partly present
 [ ] = not present
 
 ## Pré-requis techniques
