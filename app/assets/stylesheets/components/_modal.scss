@@ -15,11 +15,15 @@
 }
 .comment-content {
   padding: 5px;
-  width: 80%;
+  width: 75%;
 }
 .comment-time {
   flex-grow: 1;
   font-size: 12px;
+  text-align: right;
+}
+.comment-delete {
+  min-width: 20px;
   text-align: right;
 }
 .modal-header {
