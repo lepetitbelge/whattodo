@@ -1,5 +1,3 @@
-require 'byebug'
-
 class TodosController < ApplicationController
   before_action :find_todo, only: %i[update destroy mark_as_done]
   # add pundit rule
