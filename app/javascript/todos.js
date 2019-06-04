@@ -1,3 +1,12 @@
+const styleTodoDone = () => {
+  const todoItems = Array.from(document.querySelectorAll('.todo'))
+  todoItems.forEach((todo) => {
+    if (todo.querySelector('#todo_done').value == "false") {
+      todo.classList.add('todo-done');
+    }
+  });
+};
+
 const sendNewTodoForm = (new_todo_form) => {
   const url = new_todo_form.attributes.action.value;
   const method = new_todo_form.method;
@@ -69,6 +78,7 @@ const deleteTodo = (link) => {
 };
 
 $(function(){
+  styleTodoDone();
   $('form#new_todo').submit(function(event){
     event.preventDefault();
     sendNewTodoForm(this);
@@ -83,4 +93,5 @@ $(function(){
   //   deleteTodo(link);
   // });
 });
+
 

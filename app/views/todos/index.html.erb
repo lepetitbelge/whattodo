@@ -17,12 +17,12 @@
     <% i = 1 %>
     <% @todos.where(user: current_user).each do |todo| %>
       <% if current_user == todo.user %>
-        <tr>
+        <tr class="todo">
           <th scope="row"><%= i %></th>
           <td>
           <%= form_for todo do |f| %>
             <%= f.hidden_field :done, value: !todo.done %>
-            <%= f.submit (todo.done ? "✔︎" : "✘"), { :class => 'pretty p-bigger'} %>
+            <%= f.submit (todo.done ? "✔︎" : "✘"), { :class => 'pretty p-bigger todo-current-value'} %>
           <% end %>
           </td>
           <td>
@@ -42,4 +42,4 @@
     <% end %>
   </tbody>
 </table>
-
+<div class="main-page-footer"></div>
