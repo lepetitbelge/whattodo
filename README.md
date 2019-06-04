@@ -55,4 +55,4 @@ The goal was to create a single page app for this purpose and use AJAX and RoR a
 [x] Les validations doivent se faire aussi bien côté client que côté serveur
 [/] L’application doit fonctionner entièrement en mode “single page” avec des requêtes AJAX (sans rechargement de la page)
 [x] La stack front est libre. En plus de HTML5/CSS3, le candidat est libre d'utiliser un framework css ou non (ex: Materialize, Booststrap) et un framework JS ou non (ex: React)
-[I think so?] Toute attention portée à l’UX de l’application sera appréciée 🙂
+[I did my best] Toute attention portée à l’UX de l’application sera appréciée 🙂
