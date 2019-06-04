@@ -16,3 +16,10 @@ h1,h2 {
     cursor: pointer;
   }
 }
+.todo-done {
+  color: rgba(100,100,100,.5);
+  text-decoration: line-through;
+}
+.main-page-footer {
+  height: 5rem;
+}
