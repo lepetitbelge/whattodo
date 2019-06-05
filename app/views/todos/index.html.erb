@@ -15,8 +15,8 @@
   <tbody>
     <% @todos.where(user: current_user).each do |todo| %>
       <% if current_user == todo.user %>
-          <!-- render todo partial -->
           <%= render "todo", todo: todo %>
+          <%= render "shared/modal_todo_view", todo: todo %>
       <% end %>
     <% end %>
   </tbody>
