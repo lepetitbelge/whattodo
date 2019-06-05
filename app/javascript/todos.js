@@ -15,7 +15,8 @@ const sendNewTodoForm = (new_todo_form) => {
   $.ajax({
     method: method,
     url: url,
-    data: data
+    data: data,
+    dataType: 'script'
   }).done(function(data) {
       location.reload();
     })
@@ -34,7 +35,8 @@ const updateDone = (edit_done_form) => {
   $.ajax({
     method: method,
     url: url,
-    data: data
+    data: data,
+    dataType: 'script'
   }).done(function(data) {
       console.log(data);
       location.reload();

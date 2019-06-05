@@ -1,0 +1,18 @@
+<th scope="row"><%= todo.id %></th>
+<td>
+  <%= form_for todo do |f| %>
+  <%= f.hidden_field :done, value: !todo.done %>
+  <%= f.submit (todo.done ? "✔︎" : "✘"), { :class => 'pretty p-bigger todo-current-value'} %>
+  <% end %>
+</td>
+<td>
+  <%= todo.task %>
+  <i class="far fa-comment-alt" data-toggle="modal" data-target="#modal-<%= todo.id %>"> (<%= todo.comments.count %>)</i>
+</td>
+<td><%= todo.priority %></td>
+<td><%= todo.deadline.strftime('%d %B %Y') %></td>
+<td>
+  <%= link_to todo_path(todo), method: 'delete', class: "delete_todo", data: { :confirm => "Are you sure?" }  do %>
+  <i class="far fa-trash-alt"></i>
+  <% end %>
+</td>
