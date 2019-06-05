@@ -1,3 +1,3 @@
-const firstTodo = document.querySelector('.todo')
-firstTodo.insertAdjacentHTML('beforebegin', "<%= j render partial: "todo", locals: { todo: @todo} %>");
+document.querySelector('.todo').insertAdjacentHTML('beforebegin', "<%= j render partial: "todo", locals: { todo: @todo} %>");
+document.querySelector('#form-task-text').value = ""
 $("#exampleModal").modal('hide');
