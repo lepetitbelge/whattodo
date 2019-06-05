@@ -14,7 +14,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.js {}
+      format.js { render content_type: 'text/javascript' }
     end
   end
 

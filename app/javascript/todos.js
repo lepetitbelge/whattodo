@@ -7,25 +7,25 @@ const styleTodoDone = () => {
   });
 };
 
-const sendNewTodoForm = (new_todo_form) => {
-  const url = new_todo_form.attributes.action.value;
-  const method = new_todo_form.method;
-  const data = $(new_todo_form).serializeArray();
+// const sendNewTodoForm = (new_todo_form) => {
+//   const url = new_todo_form.attributes.action.value;
+//   const method = new_todo_form.method;
+//   const data = $(new_todo_form).serializeArray();
 
-  $.ajax({
-    method: method,
-    url: url,
-    data: data,
-    dataType: 'script'
-  }).done(function(data) {
-      location.reload();
-    })
-    .fail(function(xhr, status, error) {
-    //Ajax request failed.
-    var errorMessage = xhr.status + ': ' + xhr.statusText
-    alert('Error - ' + errorMessage);
-    });
-};
+//   $.ajax({
+//     method: method,
+//     url: url,
+//     data: data,
+//     dataType: 'script'
+//   }).done(function(data) {
+//       location.reload();
+//     })
+//     .fail(function(xhr, status, error) {
+//     //Ajax request failed.
+//     var errorMessage = xhr.status + ': ' + xhr.statusText
+//     alert('Error - ' + errorMessage);
+//     });
+// };
 
 const updateDone = (edit_done_form) => {
   const url = edit_done_form.attributes.action.value;
@@ -71,10 +71,7 @@ const deleteTodo = (link) => {
 
 $(function(){
   styleTodoDone();
-  $('form#new_todo').submit(function(event){
-    event.preventDefault();
-    sendNewTodoForm(this);
-  });
+
   $('form.edit_todo').submit(function(event){
     event.preventDefault();
     updateDone(this);

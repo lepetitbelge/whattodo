@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_for Todo.new do |f| %>
+        <%= form_for Todo.new, remote: true,"data-type" => "script" do |f| %>
         <% if current_user != nil %>
           <%= f.hidden_field :user_id, :value => current_user.id %>
         <% end %>

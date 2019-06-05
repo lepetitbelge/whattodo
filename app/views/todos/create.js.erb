@@ -1,1 +1,3 @@
-$('tr').append("<%= j render partial: "todo", locals: { todo: @todo} %>")
+const firstTodo = document.querySelector('.todo')
+firstTodo.insertAdjacentHTML('beforebegin', "<%= j render partial: "todo", locals: { todo: @todo} %>");
+$("#exampleModal").modal('hide');
