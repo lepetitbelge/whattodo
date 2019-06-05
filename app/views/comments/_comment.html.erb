@@ -1,4 +1,4 @@
-<li class="comments-box">
+<li class="comments-box" id="comment-<%= comment.id %>" >
   <div class="comment-content">
     <p><%= comment.content %></p>
   </div>
@@ -6,7 +6,7 @@
     <p>(<%= comment.created_at.strftime('%e %b %Y') %>)</p>
   </div>
   <div class="comment-delete">
-    <%= link_to comment_path(comment), method: 'delete', class: "delete_comment", data: { :confirm => "Are you sure?" }  do %>
+    <%= link_to comment_path(comment), method: 'delete', class: "delete_comment", data: { :confirm => "Are you sure?" }, remote: true  do %>
     <i class="far fa-trash-alt"></i>
     <% end %>
   </div>

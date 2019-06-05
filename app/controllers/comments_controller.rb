@@ -17,7 +17,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     authorize @comment
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   private
