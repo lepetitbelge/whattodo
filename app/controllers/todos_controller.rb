@@ -21,13 +21,21 @@ class TodosController < ApplicationController
   def update
     authorize @todo
     @todo.update(todo_params)
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   def destroy
     @todo.destroy
     authorize @todo
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   private
