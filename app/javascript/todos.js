@@ -10,22 +10,12 @@ const styleTodoDone = () => {
 const sendNewTodoForm = (new_todo_form) => {
   const url = new_todo_form.attributes.action.value;
   const method = new_todo_form.method;
-  console.log('url: ',url)
-  console.log('method: ',method)
-
-  const task = document.querySelector('#form-task-text').value;
-  const priority = document.querySelector('#form-priority-select').value;
-  const user = document.querySelector('#todo_user_id').value;
-
-  const year = document.querySelector('#todo_deadline_1i').value;
-  const month = document.querySelector('#todo_deadline_2i').value;
-  const day = document.querySelector('#todo_deadline_3i').value;
-  const date = `${day}-${month}-${year}`
+  const data = $(new_todo_form).serializeArray();
 
   $.ajax({
     method: method,
     url: url,
-    data: { todo: {task: task, priority: priority, user_id: user, deadline: date} }
+    data: data
   }).done(function(data) {
       location.reload();
     })
@@ -39,12 +29,12 @@ const sendNewTodoForm = (new_todo_form) => {
 const updateDone = (edit_done_form) => {
   const url = edit_done_form.attributes.action.value;
   const method = edit_done_form.method;
-  const value = edit_done_form.querySelector('#todo_done').value;
+  const data = $(edit_done_form).serializeArray();
 
   $.ajax({
     method: method,
     url: url,
-    data: { todo: {done: value}, _method: 'PATCH' }
+    data: data
   }).done(function(data) {
       console.log(data);
       location.reload();
