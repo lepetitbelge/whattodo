@@ -1,1 +1,2 @@
 document.querySelector('.comments-box').insertAdjacentHTML('beforebegin', "<%= j render partial: "comment", locals: { comment: @comment} %>");
+document.querySelector('#comment_content').value = ""
