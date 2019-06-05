@@ -5,7 +5,6 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Check!</th>
       <th scope="col">Task</th>
       <th scope="col">Priority</th>
@@ -16,10 +15,8 @@
   <tbody>
     <% @todos.where(user: current_user).each do |todo| %>
       <% if current_user == todo.user %>
-        <tr class="todo">
           <!-- render todo partial -->
           <%= render "todo", todo: todo %>
-        </tr>
       <% end %>
     <% end %>
   </tbody>
