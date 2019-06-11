@@ -14,10 +14,8 @@
   </thead>
   <tbody>
     <% @todos.where(user: current_user).each do |todo| %>
-      <% if current_user == todo.user %>
-          <%= render "todo", todo: todo %>
-          <%= render "shared/modal_todo_view", todo: todo %>
-      <% end %>
+        <%= render "todo", todo: todo %>
+        <%= render "shared/modal_todo_view", todo: todo %>
     <% end %>
   </tbody>
 </table>
