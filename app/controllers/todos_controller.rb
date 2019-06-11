@@ -1,7 +1,7 @@
 require 'byebug'
 
 class TodosController < ApplicationController
-  before_action :find_todo, only: %i[update destroy mark_as_done]
+  before_action :set_todo, only: %i[update destroy mark_as_done]
   # add pundit rule
 
   def index
@@ -40,7 +40,7 @@ class TodosController < ApplicationController
 
   private
 
-  def find_todo
+  def set_todo
     @todo = Todo.find(params[:id])
   end
 
