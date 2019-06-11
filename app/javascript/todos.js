@@ -7,26 +7,6 @@ const styleTodoDone = () => {
   });
 };
 
-// const sendNewTodoForm = (new_todo_form) => {
-//   const url = new_todo_form.attributes.action.value;
-//   const method = new_todo_form.method;
-//   const data = $(new_todo_form).serializeArray();
-
-//   $.ajax({
-//     method: method,
-//     url: url,
-//     data: data,
-//     dataType: 'script'
-//   }).done(function(data) {
-//       location.reload();
-//     })
-//     .fail(function(xhr, status, error) {
-//     //Ajax request failed.
-//     var errorMessage = xhr.status + ': ' + xhr.statusText
-//     alert('Error - ' + errorMessage);
-//     });
-// };
-
 const updateDone = (edit_done_form) => {
   const url = edit_done_form.attributes.action.value;
   const method = edit_done_form.method;
@@ -76,10 +56,5 @@ $(function(){
     event.preventDefault();
     updateDone(this);
   });
-  // THIS CODE IS SUPPOSED TO AJAX DELETE FUNCTION -> DOES NOT WORK, BUT CLOSE
-  // const linkDeleteTodo = Array.from(document.querySelectorAll('.delete_todo'))
-  // linkDeleteTodo.forEach((link) => {
-  //   deleteTodo(link);
-  // });
 });
 
