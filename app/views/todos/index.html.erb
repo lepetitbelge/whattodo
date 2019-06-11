@@ -5,7 +5,6 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Check!</th>
       <th scope="col">Task</th>
       <th scope="col">Priority</th>
@@ -14,31 +13,11 @@
     </tr>
   </thead>
   <tbody>
-    <% i = 1 %>
     <% @todos.where(user: current_user).each do |todo| %>
       <% if current_user == todo.user %>
-        <tr class="todo">
-          <th scope="row"><%= i %></th>
-          <td>
-          <%= form_for todo do |f| %>
-            <%= f.hidden_field :done, value: !todo.done %>
-            <%= f.submit (todo.done ? "✔︎" : "✘"), { :class => 'pretty p-bigger todo-current-value'} %>
-          <% end %>
-          </td>
-          <td>
-            <%= todo.task %>
-            <i class="far fa-comment-alt" data-toggle="modal" data-target="#modal-<%= todo.id %>"> (<%= todo.comments.count %>)</i>
-          </td>
-          <td><%= todo.priority %></td>
-          <td><%= todo.deadline.strftime('%d %B %Y') %></td>
-          <td>
-            <%= link_to todo_path(todo), method: 'delete', class: "delete_todo", data: { :confirm => "Are you sure?" }  do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          </td>
-        </tr>
+          <%= render "todo", todo: todo %>
+          <%= render "shared/modal_todo_view", todo: todo %>
       <% end %>
-    <% i += 1 %>
     <% end %>
   </tbody>
 </table>

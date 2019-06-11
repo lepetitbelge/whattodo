@@ -7,13 +7,21 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create(comment_params)
     authorize @comment
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   def destroy
     @comment.destroy
     authorize @comment
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   private

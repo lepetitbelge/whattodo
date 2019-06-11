@@ -1,3 +1,5 @@
+require 'byebug'
+
 class TodosController < ApplicationController
   before_action :find_todo, only: %i[update destroy mark_as_done]
   # add pundit rule
@@ -9,19 +11,31 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.create(todo_params)
     authorize @todo
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   def update
     authorize @todo
     @todo.update(todo_params)
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   def destroy
     @todo.destroy
     authorize @todo
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render content_type: 'text/javascript' }
+    end
   end
 
   private
