@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @todos.where(user: current_user).each do |todo| %>
+    <% @todos.each do |todo| %>
         <%= render "todo", todo: todo %>
         <%= render "shared/modal_todo_view", todo: todo %>
     <% end %>
