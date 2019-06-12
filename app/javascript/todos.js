@@ -28,27 +28,6 @@ const updateDone = (edit_done_form) => {
     });
 };
 
-const deleteTodo = (link) => {
-  link.addEventListener('click', (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-    const method = link.id
-    const url = link.attributes['href'].value;
-
-    $.ajax({
-      type: method,
-      url: url
-    }).done(function(data) {
-      console.log("we're here bebee")
-      location.reload();
-    }).fail(function(xhr, status, error) {
-    //Ajax request failed.
-      const errorMessage = xhr.status + ': ' + xhr.statusText
-      alert('Error - ' + errorMessage);
-    });
-  });
-};
-
 $(function(){
   styleTodoDone();
 
