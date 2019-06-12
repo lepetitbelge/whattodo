@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <ul class="todomodal-comments">
-          <% todo.comments.order(created_at: :desc).each do |comment| %>
+          <% todo.comments.each do |comment| %>
           <%= render "comments/comment", comment: comment %>
           <% end %>
         </ul>
