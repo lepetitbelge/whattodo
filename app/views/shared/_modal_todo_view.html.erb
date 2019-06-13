@@ -1,8 +1,8 @@
-<div class="modal fade" id="modal-<%= todo.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="modal-<%= todo.id %>" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Task: <%= todo.task %></h5>
+        <h5 class="modal-title" id="ModalLongTitle">Task: <%= todo.task %></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -15,17 +15,7 @@
         </ul>
       </div>
       <div class="modal-footer">
-        <%= form_for Comment.new, remote: true do |f| %>
-        <div class="form-group">
-          <%= f.text_field :content, placeholder: "Add a comment", class: 'form-control' %>
-        </div>
-        <%= f.hidden_field :todo_id, value: todo.id %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-
-        <div class="form-group">
-          <%= f.submit "Post comment", class: "btn btn-custom" %>
-        </div>
-        <% end %>
+        <%= render "comments/comment_new_form", todo: todo %>
       </div>
     </div>
   </div>
