@@ -15,7 +15,6 @@
   <tbody>
     <% @todos.each do |todo| %>
         <%= render "todo", todo: todo %>
-        <%= render "shared/modal_todo_view", todo: todo %>
     <% end %>
   </tbody>
 </table>
