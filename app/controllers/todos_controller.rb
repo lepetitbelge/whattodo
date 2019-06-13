@@ -1,8 +1,5 @@
-require 'byebug'
-
 class TodosController < ApplicationController
-  before_action :set_todo, only: %i[update destroy mark_as_done]
-  # add pundit rule
+  before_action :set_todo, only: %i[update destroy]
 
   def index
     @todos = policy_scope(Todo).order(deadline: :asc)
@@ -19,8 +16,9 @@ class TodosController < ApplicationController
   end
 
   def update
+    # TODO: include error messages when it doesn't work
+    @todo.update_attribute(:done, params[:todo][:done]) if todo_update_params
     authorize @todo
-    @todo.update(todo_params)
 
     respond_to do |format|
       format.html { redirect_to root_path }
@@ -50,7 +48,7 @@ class TodosController < ApplicationController
   end
 
   def todo_update_params
-    params.require(:todo).permit(:done)
+    ["true", "false"].include?(params[:todo][:done])
   end
 
   def create_deadline(params)
