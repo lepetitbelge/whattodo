@@ -1,1 +1,5 @@
-$("li#comment-<%= @comment.id %>").slideUp();
+function destroyComment(){
+  document.querySelector('#comment-<%= @comment.id %>').remove();
+};
+
+destroyComment();
