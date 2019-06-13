@@ -7,33 +7,5 @@ const styleTodoDone = () => {
   });
 };
 
-const updateDone = (edit_done_form) => {
-  const url = edit_done_form.attributes.action.value;
-  const method = edit_done_form.method;
-  const data = $(edit_done_form).serializeArray();
-
-  $.ajax({
-    method: method,
-    url: url,
-    data: data,
-    dataType: 'script'
-  }).done(function(data) {
-      console.log(data);
-      location.reload();
-    })
-    .fail(function(xhr, status, error) {
-    //Ajax request failed.
-    var errorMessage = xhr.status + ': ' + xhr.statusText
-    alert('Error - ' + errorMessage);
-    });
-};
-
-$(function(){
-  styleTodoDone();
-
-  $('form.edit_todo').submit(function(event){
-    event.preventDefault();
-    updateDone(this);
-  });
-});
+styleTodoDone();
 

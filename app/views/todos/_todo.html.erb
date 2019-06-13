@@ -1,8 +1,8 @@
 <tr class="todo" id="todo-<%= todo.id %>">
   <td>
     <%= form_for todo, remote: true do |f| %>
-    <%= f.hidden_field :done, value: !todo.done %>
-    <%= f.submit (todo.done ? "✔" : "✘"), { :class => 'pretty p-bigger todo-current-value'} %>
+      <%= f.hidden_field :done, value: !todo.done %>
+      <%= f.submit (todo.done ? "✔" : "✘"), { :class => 'pretty p-bigger todo-current-value'} %>
     <% end %>
   </td>
   <td>
