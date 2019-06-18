@@ -1,4 +1,6 @@
 document.querySelector('.todo').insertAdjacentHTML('beforebegin', "<%= j render partial: "todo", locals: { todo: @todo} %>");
-document.querySelector('#form-task-text').value = ""
+document.querySelector('#form-task-text').value = "";
+
+// using JQuery because bootstrap works with it for the modals
 $("#exampleModal").modal('hide');
 

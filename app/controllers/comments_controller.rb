@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_comment, only: %i[destroy]
+  before_action :set_comment, only: %i[destroy]
 
   def index
   end
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def find_comment
+  def set_comment
     @comment = Comment.find(params[:id])
   end
 

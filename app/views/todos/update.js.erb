@@ -1,4 +1,15 @@
-// Nothing to do as the element updates itself
-// TBH: I am not 100% sure why
-// I think it's because the value is already updated
-// and the display is done immediately in the view
+function updateTodo() {
+  const originalTodo = document.querySelector("#todo-<%= @todo.id %>");
+  originalTodo.insertAdjacentHTML('afterend', "<%= j render partial: "todo", locals: { todo: @todo} %>");
+  originalTodo.remove();
+
+  const updatedTodo = document.querySelector("#todo-<%= @todo.id %>");
+
+  if (originalTodo.classList.value.includes("todo-done")) {
+    updatedTodo.classList.remove('todo-done');
+  } else {
+    updatedTodo.classList.add('todo-done');
+  };
+};
+
+updateTodo();

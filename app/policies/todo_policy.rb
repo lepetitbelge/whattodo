@@ -1,7 +1,7 @@
 class TodoPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
@@ -10,14 +10,14 @@ class TodoPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user == record.user
   end
 
   def destroy?
-    true
+    user == record.user
   end
 
   def update?
-    true
+    user == record.user
   end
 end

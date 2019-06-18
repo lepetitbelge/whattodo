@@ -1,15 +1,15 @@
 class CommentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user).order(created_at: :desc)
     end
   end
 
   def create?
-    true
+    user == record.user
   end
 
   def destroy?
-    true
+    user == record.user
   end
 end

@@ -1,2 +1,10 @@
-document.querySelector('.comments-box').insertAdjacentHTML('beforebegin', "<%= j render partial: "comment", locals: { comment: @comment} %>");
-document.querySelector('#comment_content').value = ""
+function createComment() {
+  const newComment = "<%= j render partial: "comment", locals: { comment: @comment} %>"
+  const commentNode = new DOMParser().parseFromString(newComment, "text/html").querySelector('li')
+  document.querySelector('.show .todomodal-comments').appendChild(commentNode);
+
+  document.querySelector('.show #comment_content').value = ""
+};
+
+createComment();
+

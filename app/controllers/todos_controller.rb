@@ -1,8 +1,5 @@
-require 'byebug'
-
 class TodosController < ApplicationController
-  before_action :find_todo, only: %i[update destroy mark_as_done]
-  # add pundit rule
+  before_action :set_todo, only: %i[update destroy]
 
   def index
     @todos = policy_scope(Todo).order(deadline: :asc)
@@ -19,8 +16,9 @@ class TodosController < ApplicationController
   end
 
   def update
+    # TODO: include error messages when it doesn't work
+    @todo.update_attribute(:done, params[:todo][:done]) if todo_update_params
     authorize @todo
-    @todo.update(todo_params)
 
     respond_to do |format|
       format.html { redirect_to root_path }
@@ -40,26 +38,20 @@ class TodosController < ApplicationController
 
   private
 
-  def find_todo
+  def set_todo
     @todo = Todo.find(params[:id])
   end
 
   def todo_params
-    params[:todo][:deadline] = create_deadline(params) if params[:todo]["deadline(3i)"]
+    params[:todo][:deadline] = create_deadline(params) if params[:todo]["deadline(1i)"]
     params.require(:todo).permit(:task, :priority, :user_id, :deadline, :done)
   end
 
   def todo_update_params
-    params.require(:todo).permit(:done)
+    ["true", "false"].include?(params[:todo][:done])
   end
 
   def create_deadline(params)
-    time = []
-    i = 3
-    3.times do
-      time << params[:todo]["deadline(#{i}i)"]
-      i -= 1
-    end
-    DateTime.strptime(time.join('-'), '%d-%m-%Y')
+    DateTime.new params[:todo]["deadline(1i)"].to_i, params[:todo]["deadline(2i)"].to_i, params[:todo]["deadline(3i)"].to_i
   end
 end
